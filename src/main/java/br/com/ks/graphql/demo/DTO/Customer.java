@@ -1,6 +1,7 @@
 package br.com.ks.graphql.demo.DTO;
 
 import br.com.ks.graphql.demo.builders.AddressBuilder;
+import br.com.ks.graphql.demo.builders.BankBuilder;
 
 public class Customer {
 
@@ -10,7 +11,8 @@ public class Customer {
     private Long registroGeral;
     private Long field1;
     private String field2;
-    private Address Address;
+    private Address address;
+    private Bank bank;
 
     public Customer(Long id, String firstName, String lastName) {
         this.id = id;
@@ -66,10 +68,20 @@ public class Customer {
         this.field2 = field2;
     }
 
-    public Address getAddress(Integer id) {
+
+    public Address getAddress() {
         return AddressBuilder.list
                 .stream()
-                .filter($ -> $.getId().equals(Long.valueOf(id)))
-                .findAny().get();
+                .filter($ -> $.getId().equals(Long.valueOf(this.id)))
+                .findAny()
+                .orElse(new Address());
+    }
+
+    public Bank getBank() {
+        return BankBuilder.list
+                .stream()
+                .filter($ -> $.getId().equals(Long.valueOf(this.id)))
+                .findAny()
+                .orElse(Bank.builder().build());
     }
 }

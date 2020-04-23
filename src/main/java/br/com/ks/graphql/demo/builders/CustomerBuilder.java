@@ -12,7 +12,8 @@ public class CustomerBuilder {
           new Customer(123457L, "Maira", "Paz"),
           new Customer(987654L, "Albert", "Wesker"),
           new Customer(987653L,"Jill", "Valentine"),
-          new Customer(222322L,"Chris", "Redfield")
+          new Customer(222322L,"Chris", "Redfield"),
+          new Customer(222320L,"Clarie", "Redfield")
    );
 
 

@@ -9,6 +9,10 @@ public class Address {
    private String city;
    private String state;
 
+
+   public Address() {
+   }
+
    public Address(Long id, String address, Integer number, Integer CEP, String city, String state) {
       this.id = id;
       this.address = address;
